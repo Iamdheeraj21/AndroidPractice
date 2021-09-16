@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Text_checker">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/editextChecker"
+        android:hint="Username?"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/white"
+        android:background="@drawable/edittext_shape"
+        android:paddingHorizontal="20dp"
+        android:layout_marginLeft="50dp"
+        tools:ignore="HardcodedText"
+        android:inputType="text"
+        android:autofillHints="no" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result"
+        android:layout_below="@id/editextChecker"
+        android:id="@+id/checkerResult"
+        android:layout_marginTop="35dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkText"
+        android:text="Check text"
+        android:layout_below="@id/editextChecker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        tools:ignore="HardcodedText" />
+
+
+</RelativeLayout>

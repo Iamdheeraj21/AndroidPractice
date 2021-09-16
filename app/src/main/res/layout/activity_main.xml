@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ListView Example"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:id="@+id/heading"
+        android:layout_centerHorizontal="true"
+        tools:ignore="HardcodedText" />
+
+    <ListView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_below="@id/heading"
+        android:id="@+id/listview"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Listview"
+        android:id="@+id/showButton"
+        android:layout_below="@id/heading"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textChecker"
+        android:layout_below="@id/showButton"
+        android:text="Text Checker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+</RelativeLayout>
