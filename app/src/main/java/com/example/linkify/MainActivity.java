@@ -1,11 +1,17 @@
 package com.example.linkify;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,5 +75,36 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart () {
         super.onStart();
         listView.setVisibility(View.GONE);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (@NonNull MenuItem item) {
+       if(item.getItemId()==R.id.share){
+            AlertDialog builder = new AlertDialog.Builder(this).create();
+            View view=getLayoutInflater().inflate(R.layout.share_data,null);
+           builder.setCancelable(true);
+           builder.setView(view);
+           EditText editText;
+           Button button;
+           editText=view.findViewById(R.id.editTextTextPersonName);
+           button=view.findViewById(R.id.share_Button);
+           builder.show();
+
+           button.setOnClickListener(v->{
+              Intent intent=new Intent(Intent.ACTION_SEND);
+              intent.setType("text/plain");
+              intent.putExtra(Intent.EXTRA_SUBJECT,"Subject here");
+              intent.putExtra(Intent.EXTRA_TEXT,editText.getText().toString());
+              startActivity(Intent.createChooser(intent,"Share via"));
+           });
+           return true;
+       }
+       return false;
     }
 }
