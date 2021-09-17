@@ -1,21 +1,22 @@
 package com.example.linkify;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     MyAdapter mAdapter;
+    TextView textView;
     Button showButton,textCheckerButton;
     ListView listView;
     String[] url={"https://www.yoururl1.com/","https://www.yoururl2.com/",
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         listView= findViewById(R.id.listview);
         showButton=findViewById(R.id.showButton);
         textCheckerButton=findViewById(R.id.textChecker);
-
+        textView=findViewById(R.id.textView);
+        getIntentData();
         showButton.setOnClickListener(v->{
             listView.setVisibility(View.VISIBLE);
             showButton.setVisibility(View.GONE);
@@ -106,5 +108,22 @@ public class MainActivity extends AppCompatActivity {
            return true;
        }
        return false;
+    }
+    private void getIntentData() {
+        Intent intent=getIntent();
+        String action = intent.getAction();
+        String type=intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            handlesendText(intent);
+        }
+    }
+
+    private void handlesendText (Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // showing the text in edittext
+            textView.setText(sharedText);
+        }
     }
 }
