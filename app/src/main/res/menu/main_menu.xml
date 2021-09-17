@@ -5,4 +5,9 @@
         android:title="Share"
         android:icon="@drawable/ic_round_share_24"
         tools:ignore="HardcodedText" />
+
+    <item android:id="@+id/converter"
+        android:title="Converter"
+        tools:ignore="HardcodedText" />
+
 </menu>
