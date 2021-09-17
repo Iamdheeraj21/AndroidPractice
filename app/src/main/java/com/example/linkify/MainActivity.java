@@ -106,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
               startActivity(Intent.createChooser(intent,"Share via"));
            });
            return true;
+       }else if(item.getItemId()==R.id.converter){
+           startActivity(new Intent(this,Converter_Activity.class).addFlags(
+                   Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK
+           ));
+           return true;
        }
        return false;
     }
